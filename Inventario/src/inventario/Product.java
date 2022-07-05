@@ -4,7 +4,8 @@
 package inventario;
 
 /**
- * @author Yuri
+ * @author Yuri Soares
+ * 
  *	Classe do projeto Inventário. Esta classe armazena informações do objeto produto.
  *  Ela representa cada produto gerenciado no inventário.
  */
@@ -68,7 +69,7 @@ public class Product {
 		    "Número do Item       : "+ getNumId()
 		+ "\nNome                 : "+ getNome()
 		+ "\nQuantidade em estoque: "+ getNumEstoque()
-		+ "\nPreço                : "+ getPreco();
+		+ "\nPreço                : R$ "+ getPreco();
 		return s1;
 	}
 } // fim da classe Product
