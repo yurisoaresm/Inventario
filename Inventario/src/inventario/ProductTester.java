@@ -49,6 +49,7 @@ public class ProductTester {
 		Product p4 = new Product((byte)4, "Grande Hits dos anos 80 e 90", (short)70, 9.97);
 		Product p5 = new Product((byte)5, "Chapéus", (short)30, 24.99);
 		Product p6 = new Product((byte)6, "Jogos PS2", (short)100, 10.00);
+		p6.setAtivo(false);
 		
 		System.out.println(p1);
 		System.out.println("------------");

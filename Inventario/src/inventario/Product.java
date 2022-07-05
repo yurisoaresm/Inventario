@@ -15,6 +15,7 @@ public class Product {
 	private String nome;
 	private short numEstoque;
 	private double preco;
+	private boolean ativo = true;
 	
 	// Construtores
 	// Construtor padrão para instanciar um produto com valores padrões.
@@ -46,6 +47,10 @@ public class Product {
 		return preco;
 	}
 	
+	public boolean isAtivo() {
+		return ativo;
+	}
+	
 	// Métodos modificadores: alteram o valor de campo do objeto
 	public void setNumId(byte numId) {
 		this.numId = numId;
@@ -63,13 +68,24 @@ public class Product {
 		this.preco = preco;
 	}
 	
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+	
+	// Outros métodos
+	public double getValorInventario() {
+		return preco * numEstoque;
+	}
+	
 	@Override
 	public String toString() {
 		String s1 =
 		    "Número do Item       : "+ getNumId()
 		+ "\nNome                 : "+ getNome()
 		+ "\nQuantidade em estoque: "+ getNumEstoque()
-		+ "\nPreço                : R$ "+ getPreco();
+		+ "\nPreço                : R$ "+ getPreco()
+		+ "\nValor do estoque     : R$ "+ getValorInventario()
+		+ "\nStatus do produto    : "+ (isAtivo() ? "Ativo" : "Descontinuado");
 		return s1;
-	}
+}
 } // fim da classe Product
