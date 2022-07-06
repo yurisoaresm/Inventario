@@ -19,49 +19,49 @@ public class ProductTester {
 		String tempName;
 		short tempQty;
 		double tempPrice;
+		int maxSize = -1;        // Número de produtos que o usuário queira adicionar
 		
-		System.out.println("Digite o nome do produto (tipo de produto): ");
-		tempName = in.nextLine();
-		System.out.println("Digite a quantidade em estoque do produto: ");
-		tempQty = in.nextShort();
-		System.out.println("Digite o preço: ");
-		tempPrice = in.nextDouble();
-		System.out.println("Digite o número do item: ");
-		tempNumber = in.nextByte();
+		// Tratamento de erros e exceções
+		do {
+			try {
+				System.out.println("Insira o número de produtos que gostaria de adicionar.");
+				System.out.println("Insira 0 (zero) se não quiser adicionar produtos:");
+				maxSize = in.nextInt();
+				if (maxSize < 0)
+					System.out.println("Valor incorreto inserido.\n");
+			} catch (Exception e) {
+				System.out.println("Tipo incorreto de dado inserido!\n");
+				in.nextLine();
+			}
+		} while (maxSize < 0);
 		
-		Product p1 = new Product(tempNumber, tempName, tempQty, tempPrice);
+		// Entrada e processamento dos dados
+		if (maxSize == 0)
+			System.out.println("Não há produtos");
+		else {
+			Product[] produtos = new Product[maxSize];
+			for (int i = 0; i < maxSize; i++) {
+				in.nextLine();
+				
+				System.out.println("Digite o nome do produto (tipo de produto): ");
+				tempName = in.nextLine();
+				System.out.println("Digite a quantidade em estoque do produto: ");
+				tempQty = in.nextShort();
+				System.out.println("Digite o preço: ");
+				tempPrice = in.nextDouble();
+				System.out.println("Digite o número do item: ");
+				tempNumber = in.nextByte();
+				
+				produtos[i] = new Product(tempNumber, tempName, tempQty, tempPrice);
+			}
+			
+			// Exibindo informações (saída de dados) de cada produto com loop for-each
+			for (Product myProduct : produtos) {
+				System.out.println(myProduct.toString());
+				System.out.println("--------");
+			}
+		}
 		
-		in.nextLine(); // Descartar valores armazenados em buffer do scanner anterior (nextByte())
-		System.out.println("Digite o nome do produto (tipo de produto): ");
-		tempName = in.nextLine();
-		System.out.println("Digite a quantidade em estoque do produto: ");
-		tempQty = in.nextShort();
-		System.out.println("Digite o preço: ");
-		tempPrice = in.nextDouble();
-		System.out.println("Digite o número do item: ");
-		tempNumber = in.nextByte();
-		in.nextLine();
-		
-		in.close();
-		
-		Product p2 = new Product(tempNumber, tempName, tempQty, tempPrice);
-		Product p3 = new Product((byte)3, "Clássicos da Literatura", (short)40, 19.90);
-		Product p4 = new Product((byte)4, "Grande Hits dos anos 80 e 90", (short)70, 9.97);
-		Product p5 = new Product((byte)5, "Chapéus", (short)30, 24.99);
-		Product p6 = new Product((byte)6, "Jogos PS2", (short)100, 10.00);
-		p6.setAtivo(false);
-		
-		System.out.println(p1);
-		System.out.println("------------");
-		System.out.println(p2);
-		System.out.println("------------");
-		System.out.println(p3);
-		System.out.println("------------");
-		System.out.println(p4);
-		System.out.println("------------");
-		System.out.println(p5);
-		System.out.println("------------");
-		System.out.println(p6);
-	}
+	} // fim do método principal
 
-}
+} // fim da classe Driver
