@@ -30,6 +30,16 @@ public class Product {
 		this.preco = preco;
 	}
 	
+	// Método para adicionar produtos no estoque
+	public void addToInventory(int numAdd) {
+		numEstoque += numAdd;
+	}
+	
+	// Método para deduzir ("deduct": subtrair, diminuir) produtos no estoque
+	public void deductFromInventory(int numDeduct) {
+		numEstoque -= numDeduct;
+	}
+	
 	// Métodos acessores: retornam o valor de campo (variável) do objeto
 	public byte getNumId() {
 		return numId;
