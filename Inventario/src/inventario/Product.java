@@ -11,11 +11,11 @@ package inventario;
  */
 public class Product {
 	// Declarações de campo de instância
-	private byte numId;
-	private String nome;
-	private short numEstoque;
-	private double preco;
-	private boolean ativo = true;
+	protected byte numId;
+	protected String nome;
+	protected short numEstoque;
+	protected double preco;
+	protected boolean ativo = true;
 	
 	// Construtores
 	// Construtor padrão para instanciar um produto com valores padrões.
@@ -32,7 +32,11 @@ public class Product {
 	
 	// Método para adicionar produtos no estoque
 	public void addToInventory(int numAdd) {
-		numEstoque += numAdd;
+		if (isAtivo()) 
+			numEstoque += numAdd;
+		else 
+			System.out.println("Esta linha foi descontinuada.");
+		
 	}
 	
 	// Método para deduzir ("deduct": subtrair, diminuir) produtos no estoque
@@ -97,5 +101,5 @@ public class Product {
 		+ "\nValor do estoque     : R$ "+ getValorInventario()
 		+ "\nStatus do produto    : "+ (isAtivo() ? "Ativo" : "Descontinuado");
 		return s1;
-}
+	}
 } // fim da classe Product
