@@ -4,10 +4,10 @@
 package inventario;
 
 /**
+ * Esta classe armazena informações do objeto produto.
+ * Ela representa cada produto que será gerenciado no inventário.
+ *  
  * @author Yuri Soares
- * 
- *	Classe do projeto Inventário. Esta classe armazena informações do objeto produto.
- *  Ela representa cada produto gerenciado no inventário.
  */
 public class Product {
 	// Declarações de campo de instância
@@ -92,6 +92,12 @@ public class Product {
 	}
 	
 	@Override
+	/**
+	 * Este é o método principal que inicia o programa. Ele inicializa a lista de objetos mediante
+	 * a entrada do usuário.
+	 * 
+	 * @param asdsad
+	 */
 	public String toString() {
 		String s1 =
 		    "Número do Item       : "+ getNumId()

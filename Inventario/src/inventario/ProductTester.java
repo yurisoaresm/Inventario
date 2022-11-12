@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class ProductTester {
 
 	/**
-	 * Este método inicializa o input do usuário e as variáveis que definirão o tamanho da lista
-	 * de produtos que se deseja criar e a escolha das opções do menu.
+	 * Este é o método principal que inicia o programa. Ele inicializa a lista de objetos mediante
+	 * a entrada do usuário.
 	 * 
 	 * @param args
 	 */
@@ -25,7 +25,7 @@ public class ProductTester {
 		int maxSize, menuChoice;
 		
 		maxSize = getNumProducts(in);
-		if (maxSize == 0) // Exibe a mensagem "não há produtos" se a entrada for 	zero
+		if (maxSize == 0) // Exibe a mensagem "não há produtos" se a entrada for zero
 			System.out.println("Não há produtos");
 		else {
 			Product[] produtos = new Product[maxSize];
@@ -38,7 +38,13 @@ public class ProductTester {
 		
 	} // fim do método principal
 	
-
+	/**
+	 * Este método executa a escolha feita pelo usuário na interface gráfica getMenuOption().
+	 * 
+	 * @param menuChoice É o valor de entrada do usuário e indica qual opção ele escolheu.
+	 * @param produtos É a lista de produtos que está no inventário.
+	 * @param in É o scanner que será lido do usuário. 
+	 */
 	public static void executeMenuChoice(int menuChoice, Product[] produtos, Scanner in) {
 		
 		switch (menuChoice) {
@@ -63,7 +69,13 @@ public class ProductTester {
 		}
 	}
 	
-	// Menu para seleção
+	/**
+	 * Este método é a interface de navegação usada pelo usuário para escolher qual operação
+	 * deseja realizar no inventário.
+	 * 
+	 * @param in É o scanner que será lido do usuário.
+
+	 */
 	public static int getMenuOption(Scanner in) {
 		int opcao = -1;
 		
@@ -92,7 +104,12 @@ public class ProductTester {
 		return opcao;
 	}
 	
-	// Método para adicionar valores de estoque a cada produto identificado
+	/**
+	 * Este método permite ao usuário escolher qual item deseja adicionar ao estoque de produtos.
+	 * 
+	 * @param produtos É a lista de produtos que está no inventário.
+	 * @param in É o scanner que será lido do usuário. 
+	 */
 	public static void addInventory(Product[] produtos, Scanner in) {
 		int stockChoice = -1;
 	
@@ -117,7 +134,13 @@ public class ProductTester {
 
 	}
 	
-	// Método para deduzir (diminuir) valores de estoque a cada produto identificado
+	/**
+	 * Este método é para deduzir (diminuir) o número de itens em estoque de um produto 
+	 * específico.
+	 * 
+	 * @param produtos É a lista de produtos que está no inventário.
+	 * @param in É o scanner que será lido do usuário. 
+	 */
 	public static void deductInventory(Product[] produtos, Scanner in) {
 		int productChoice;
 		int updateValue = -1;
@@ -142,7 +165,12 @@ public class ProductTester {
 
 	}
 	
-	// Método para descontinuar um estoque
+	/**
+	 * Este método irá descontinuar um produto específico em estoque.
+	 * 
+	 * @param produtos É a lista de produtos que está no inventário.
+	 * @param in É o scanner que será lido do usuário. 
+	 */
 	public static void discontinueInventory(Product[] produtos, Scanner in) {
 		int productChoice;
 		
@@ -151,7 +179,13 @@ public class ProductTester {
 			
 	}
 		
-	// Método para selecionar um produto no array
+	/**
+	 * Este método seleciona um produto no inventário. Também exibe todos os produtos disponíveis
+	 * antes de solicitar qual produto será selecionado.
+	 * 
+	 * @param produtos É a lista de produtos que está no inventário.
+	 * @param in É o scanner que será lido do usuário. 
+	 */
 	public static int getProductNumber(Product[] produtos, Scanner in) {
 		int productChoice = -1;
 		
@@ -178,6 +212,12 @@ public class ProductTester {
 		return productChoice;
 	}
 	
+	/**
+	 * Este método recebe do usuário o número de produtos que deseja adicionar ao estoque. Ele 
+	 * também faz o tratamento de exceções para que o valor recebido faça sentido.
+	 * 
+	 * @param in É o scanner que será lido do usuário. 
+	 */
 	public static int getNumProducts(Scanner in) {
 		int maxSize = -1;
 		
